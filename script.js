@@ -1,6 +1,25 @@
 // Année du footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Thème sombre / clair (sombre par défaut, choix mémorisé si possible)
+const root = document.documentElement;
+const toggle = document.getElementById("theme-toggle");
+const metaTheme = document.querySelector('meta[name="theme-color"]');
+function appliquerTheme(theme) {
+  root.dataset.theme = theme;
+  toggle.innerHTML = theme === "light"
+    ? '☾<span class="tlabel"> Sombre</span>'
+    : '☀<span class="tlabel"> Clair</span>';
+  toggle.setAttribute("aria-label", theme === "light" ? "Passer en thème sombre" : "Passer en thème clair");
+  if (metaTheme) metaTheme.content = theme === "light" ? "#f2f2f3" : "#0b0b0d";
+}
+appliquerTheme(root.dataset.theme === "light" ? "light" : "dark");
+toggle.addEventListener("click", () => {
+  const next = root.dataset.theme === "light" ? "dark" : "light";
+  appliquerTheme(next);
+  try { localStorage.setItem("theme", next); } catch (e) {}
+});
+
 // Apparition douce des sections au scroll
 const items = document.querySelectorAll("section h2, .card, .hero > *, .timeline li");
 items.forEach((el) => el.classList.add("reveal"));
