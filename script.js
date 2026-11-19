@@ -1,19 +1,6 @@
 // Année du footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Thème clair / sombre (mémorisé si possible)
-const root = document.documentElement;
-try {
-  const saved = localStorage.getItem("theme");
-  if (saved) root.dataset.theme = saved;
-} catch (e) {}
-
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  const next = root.dataset.theme === "light" ? "dark" : "light";
-  root.dataset.theme = next;
-  try { localStorage.setItem("theme", next); } catch (e) {}
-});
-
 // Apparition douce des sections au scroll
 const items = document.querySelectorAll("section h2, .card, .hero > *, .timeline li");
 items.forEach((el) => el.classList.add("reveal"));

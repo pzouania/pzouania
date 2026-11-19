@@ -5,40 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pierre Zouania — Portfolio</title>
   <meta name="description" content="Portfolio de Pierre Zouania, étudiant en BUT Science des données, futur développeur de jeux vidéo.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="nav">
-    <a href="#top" class="logo" aria-label="Accueil"><img src="logo.svg" alt="" width="30" height="30"><b>PZ</b></a>
-    <nav>
-      <a href="#apropos">À propos</a>
-      <a href="#competences">Compétences</a>
-      <a href="#projets">Projets</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="theme-toggle" aria-label="Changer de thème">Thème</button>
-  </header>
+  <div class="top">
+    <header class="nav">
+      <a href="#top" class="logo" aria-label="Accueil">
+        <img src="logo.png" alt="Logo PZ" height="46">
+        <span>Pierre Zouania</span>
+      </a>
+      <nav>
+        <a href="#competences">/competences</a>
+        <a href="#projets">/projets</a>
+        <a href="#parcours">/parcours</a>
+        <a href="#contact" class="nav-cta">/contact</a>
+      </nav>
+    </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="brand-lg"><img src="logo.svg" alt="" width="64" height="64"><b>PZ</b></div>
-      <p class="tag">Étudiant · Data · Jeux vidéo</p>
-      <h1>Salut, je suis <em>Pierre Zouania</em>.</h1>
-      <p class="lead">Étudiant en BUT Science des données à l'IUT Nice Côte d'Azur. Je construis des projets web et data, avec pour objectif de devenir développeur de jeux vidéo.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projets">Voir mes projets</a>
-        <a class="btn" href="cv/CV_Pierre_Zouania.pdf" download>Télécharger mon CV</a>
-        <a class="btn" href="#contact">Me contacter</a>
-      </div>
-    </section>
+    <svg class="trace t1" viewBox="0 0 460 90" aria-hidden="true"><path d="M14 70 H170 L212 28 H460" fill="none" stroke="#3a3b3f" stroke-width="3"/><circle cx="10" cy="70" r="8" fill="#0b0b0d" stroke="#5b5d61" stroke-width="3"/></svg>
+    <svg class="trace t2" viewBox="0 0 460 90" aria-hidden="true"><path d="M14 20 H150 L192 62 H460" fill="none" stroke="#3a3b3f" stroke-width="3"/><circle cx="10" cy="20" r="8" fill="#0b0b0d" stroke="#5b5d61" stroke-width="3"/></svg>
 
+    <main id="top">
+      <section class="hero">
+        <p class="label">// Portfolio — Science des données &amp; jeux vidéo</p>
+        <h1>Pierre<br>Zouania</h1>
+        <p class="lead">Étudiant en science des données, futur développeur de jeux vidéo.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projets">Voir mes projets</a>
+          <a class="btn" href="cv/CV_Pierre_Zouania.pdf" download>Télécharger mon CV</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <main>
     <section id="apropos">
-      <h2><span>01</span> À propos</h2>
+      <h2><span>// 01</span> À propos</h2>
       <div class="grid two">
         <p>J'ai 18 ans et j'habite dans le Var. Après un bac général section européenne Sciences de l'ingénieur (spécialités mathématiques et NSI), j'ai rejoint le BUT Science des données à Valbonne, où j'apprends à collecter, analyser et valoriser des données.</p>
         <p>Je suis passionné de jeux vidéo, qui nourrissent mon projet professionnel, et je joue au basket dans une équipe depuis 2022. J'aime apprendre en construisant des choses concrètes, du premier prototype à la mise en ligne.</p>
@@ -46,11 +54,11 @@
     </section>
 
     <section id="competences">
-      <h2><span>02</span> Compétences</h2>
+      <h2><span>// 02</span> Compétences</h2>
       <div class="grid three">
         <article class="card">
           <h3>Programmation</h3>
-          <ul class="chips"><li>Python</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Tkinter</li><li>Programmation orientée objet</li></ul>
+          <ul class="chips"><li>Python</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>TSX</li><li>Tkinter</li><li>Programmation orientée objet</li></ul>
         </article>
         <article class="card">
           <h3>Outils et services</h3>
@@ -74,7 +82,7 @@
     </section>
 
     <section id="projets">
-      <h2><span>03</span> Projets informatiques</h2>
+      <h2><span>// 03</span> Projets informatiques</h2>
       <div class="grid two">
         <article class="card project wide">
           <time class="date" data-start="2025-02-20" data-end="2025-05-30">20/02/2025 → 30/05/2025</time>
@@ -98,14 +106,14 @@
           <time class="date" data-start="2026-09-22">22/09/2026 → aujourd'hui</time>
           <h3>Calendraft V1</h3>
           <p>Deuxième version de l'application, en ligne sur calendraft.fr et toujours en développement : calendriers enregistrés sur un compte, hébergement sur Cloudflare et base de données Supabase.</p>
-          <ul class="chips"><li>Cloudflare Workers</li><li>Supabase</li><li>GitHub</li></ul>
+          <ul class="chips"><li>TypeScript</li><li>TSX</li><li>CSS</li><li>Cloudflare Workers</li><li>Supabase</li><li>GitHub</li></ul>
           <a class="link" href="https://calendraft.fr" target="_blank" rel="noopener">Voir le site →</a>
         </article>
       </div>
     </section>
 
     <section id="parcours">
-      <h2><span>04</span> Parcours</h2>
+      <h2><span>// 04</span> Parcours</h2>
       <div class="grid two">
         <div>
           <h3 class="sub">Formation</h3>
@@ -151,8 +159,8 @@
     </section>
 
     <section id="contact">
-      <h2><span>05</span> Contact</h2>
-      <p>Un projet, une opportunité de stage ou d'alternance ? Écris-moi.</p>
+      <h2><span>// 05</span> Contact</h2>
+      <p class="muted">Un projet, une opportunité de stage ou d'alternance ? Écris-moi.</p>
       <div class="cta">
         <a class="btn primary" href="mailto:pzouania@gmail.com">pzouania@gmail.com</a>
         <a class="btn" href="cv/CV_Pierre_Zouania.pdf" download>Télécharger mon CV</a>
@@ -163,7 +171,7 @@
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Pierre Zouania — fait à la main, hébergé sur GitHub Pages.</p>
+    <p>© <span id="year"></span> Pierre Zouania · tech monochrome · hébergé sur GitHub Pages</p>
   </footer>
 
   <script src="script.js"></script>
