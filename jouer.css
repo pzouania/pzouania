@@ -1,0 +1,143 @@
+/* Page « Jouer » : plateaux et interface des jeux */
+:root {
+  --sq-l: #6e6f74;
+  --sq-d: #2b2c30;
+  --dot: rgba(255, 255, 255, .55);
+  --sel: #e1e2e5;
+}
+:root[data-theme="light"] {
+  --sq-l: #dcdde0;
+  --sq-d: #8d8e93;
+  --dot: rgba(0, 0, 0, .45);
+  --sel: #17171a;
+}
+
+.top.compact::before { clip-path: polygon(0 0, 46% 0, 40% 100%, 0 100%); }
+.top.compact .nav { padding-bottom: 1rem; }
+
+main.jouer { padding-top: 4rem; }
+.jouer h1 { font-size: clamp(2.8rem, 8vw, 5.5rem); margin-bottom: 1.2rem; }
+.jouer .lead { max-width: 62ch; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2.2rem 0 1rem; }
+.tab {
+  font-family: var(--mono); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted); background: transparent; border: 1px solid var(--line-2);
+  padding: .85rem 1.4rem; cursor: pointer; transition: border-color .2s, color .2s, background .2s;
+}
+.tab:hover { border-color: var(--steel); color: var(--text); }
+.tab[aria-selected="true"] {
+  color: var(--btn-text); border-color: transparent;
+  background: linear-gradient(135deg, var(--btn-from), var(--btn-to));
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+
+.statut { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; color: var(--steel); min-height: 1.6em; margin: 0 0 1.4rem; }
+.statut.erreur { color: #d6685f; }
+.note { margin: 3rem 0 0; color: var(--muted); font-size: .9rem; }
+
+.jeu[hidden] { display: none; }
+.zone { display: grid; grid-template-columns: auto minmax(240px, 1fr); gap: 2.4rem; align-items: start; }
+.panneau { display: grid; gap: 1.1rem; align-content: start; }
+.msg { font-size: 1.35rem; font-weight: 500; margin: 0; letter-spacing: -.01em; }
+.msg.fin { color: var(--text); }
+.aide { margin: 0; color: var(--muted); font-size: .92rem; }
+.panneau .btn { justify-self: start; }
+
+/* Plateaux 8x8 */
+.plateau { container-type: inline-size; width: min(calc(100vw - 2.4rem), 560px); border: 2px solid var(--line); }
+.grille8 { display: grid; grid-template-columns: repeat(8, 1fr); }
+.sq {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 1; padding: 0; border: 0; cursor: pointer; background: var(--sq-l);
+  font-size: clamp(1.6rem, 7vw, 3.2rem); font-size: 9.4cqw; line-height: 1; font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "DejaVu Sans", sans-serif;
+}
+.sq.d { background: var(--sq-d); }
+.sq:focus-visible { outline: 3px solid var(--steel); outline-offset: -3px; z-index: 2; }
+.sq.sel { box-shadow: inset 0 0 0 4px var(--sel); }
+.sq.dernier { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--sel) 35%, transparent); }
+.sq.echec { box-shadow: inset 0 0 0 4px #c0392b, inset 0 0 22px #c0392b; }
+.sq.cible::after {
+  content: ""; position: absolute; width: 26%; height: 26%; border-radius: 50%; background: var(--dot); pointer-events: none;
+}
+.sq.cible.occupe::after { width: 88%; height: 88%; background: transparent; border: 4px solid var(--dot); }
+
+/* Pions de dames */
+.pion { width: 76%; height: 76%; border-radius: 50%; position: relative; box-shadow: 0 3px 6px rgba(0, 0, 0, .55); }
+.pion.b { background: radial-gradient(circle at 35% 30%, #ffffff, #cfd0d3 55%, #8d8e93); }
+.pion.n { background: radial-gradient(circle at 35% 30%, #55565b, #1a1a1d 62%, #0b0b0d); border: 1px solid #3a3b3f; }
+.pion.dame::after {
+  content: ""; position: absolute; inset: 24%; border-radius: 50%; border: 3px solid currentColor;
+}
+.pion.b.dame { color: #55565b; }
+.pion.n.dame { color: #c6c7cb; }
+
+/* Pièces d'échecs */
+.piece.w { color: #f7f7f8; text-shadow: 0 0 1px #000, 0 0 2px #000, 0 1px 4px rgba(0, 0, 0, .7); }
+.piece.k { color: #111113; text-shadow: 0 0 1px rgba(255, 255, 255, .45); }
+.echecs-wrap { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; width: min(calc(100vw - 2.4rem), 600px); }
+.echecs-wrap .plateau { width: auto; grid-column: 2; grid-row: 1; }
+.rangs { grid-column: 1; grid-row: 1; display: grid; grid-template-rows: repeat(8, 1fr); }
+.fichiers { grid-column: 2; grid-row: 2; display: grid; grid-template-columns: repeat(8, 1fr); }
+.rangs span, .fichiers span { display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: .75rem; color: var(--steel); }
+.rangs span { padding-right: .55rem; }
+.fichiers span { padding-top: .45rem; }
+.promo { display: flex; gap: .6rem; flex-wrap: wrap; }
+.promo button {
+  font-size: 2.4rem; line-height: 1; width: 4rem; height: 4rem; cursor: pointer;
+  background: var(--sq-l); border: 2px solid var(--line-2); font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "DejaVu Sans", sans-serif;
+}
+.promo button:hover { border-color: var(--steel); }
+.promo[hidden] { display: none; }
+
+/* Jeu de l'oie */
+.setup { display: grid; gap: 1rem; max-width: 420px; }
+.setup label { display: grid; gap: .35rem; font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--steel); }
+.setup input, .setup select {
+  font: inherit; font-size: 1rem; letter-spacing: normal; text-transform: none; color: var(--text);
+  background: var(--card); border: 1px solid var(--line-2); padding: .7rem .8rem;
+}
+.setup input:focus, .setup select:focus { outline: 2px solid var(--steel); outline-offset: 0; }
+.setup .btn { justify-self: start; }
+
+.oie-zone { display: grid; grid-template-columns: auto minmax(260px, 1fr); gap: 2.4rem; align-items: start; }
+.oie-gauche { width: min(calc(100vw - 2.4rem), 520px); display: grid; gap: .8rem; }
+.oie-plateau { display: grid; grid-template-columns: repeat(7, 1fr); border: 2px solid var(--line); background: var(--line); gap: 2px; }
+.case {
+  position: relative; aspect-ratio: 1; background: var(--card); overflow: hidden; display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between; padding: 3px; min-width: 0;
+}
+.case.spec { background: color-mix(in srgb, var(--teinte) 24%, var(--card)); }
+.case .num { align-self: flex-start; font-family: var(--mono); font-size: clamp(.55rem, 1.6vw, .75rem); color: var(--steel); line-height: 1; }
+.case .lib { font-family: var(--mono); font-size: clamp(.4rem, 1.2vw, .62rem); letter-spacing: .04em; color: var(--text); opacity: .85; line-height: 1; text-align: center; }
+.case .pions, .depart .pions { display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; align-items: center; min-height: 18%; }
+.pj {
+  display: inline-flex; align-items: center; justify-content: center; border-radius: 50%;
+  width: clamp(14px, 3.6vw, 24px); height: clamp(14px, 3.6vw, 24px);
+  font-family: var(--mono); font-size: clamp(.4rem, 1.2vw, .62rem); font-weight: 500; color: #fff;
+  border: 2px solid rgba(255, 255, 255, .85); box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+}
+.depart { display: flex; align-items: center; gap: .8rem; border: 1px dashed var(--line-2); padding: .5rem .8rem; min-height: 46px; }
+.depart .lib { font-family: var(--mono); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--steel); }
+
+.joueurs { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.joueurs li { display: flex; align-items: center; gap: .7rem; padding: .45rem .7rem; border: 1px solid var(--line); }
+.joueurs li.courant { border-color: var(--steel); background: var(--hover-tint); }
+.joueurs .pt { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.joueurs .etat { margin-left: auto; font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--steel); text-align: right; }
+.des { display: flex; gap: .6rem; align-items: center; }
+.de {
+  width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 1.4rem; font-weight: 500; border: 2px solid var(--line-2); background: var(--card);
+}
+.des .total { font-family: var(--mono); font-size: .85rem; letter-spacing: .1em; color: var(--steel); text-transform: uppercase; }
+.journal {
+  list-style: none; margin: 0; padding: .6rem .8rem; height: 260px; overflow: auto; border: 1px solid var(--line);
+  font-family: var(--mono); font-size: .78rem; line-height: 1.5; color: var(--muted); background: var(--card);
+}
+.journal li { padding: .1rem 0; }
+.journal li:last-child { color: var(--text); }
+
+@media (max-width: 900px) {
+  .zone, .oie-zone { grid-template-columns: 1fr; gap: 1.6rem; }
+}
