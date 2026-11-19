@@ -15,7 +15,7 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
 });
 
 // Apparition douce des sections au scroll
-const items = document.querySelectorAll("section h2, .card, .hero > *");
+const items = document.querySelectorAll("section h2, .card, .hero > *, .timeline li");
 items.forEach((el) => el.classList.add("reveal"));
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => {

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="avatar.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +18,7 @@
       <a href="#apropos">À propos</a>
       <a href="#competences">Compétences</a>
       <a href="#projets">Projets</a>
+      <a href="#parcours">Parcours</a>
       <a href="#contact">Contact</a>
     </nav>
     <button id="theme-toggle" aria-label="Changer de thème">◐</button>
@@ -24,11 +26,13 @@
 
   <main id="top">
     <section class="hero">
+      <img class="avatar" src="avatar.svg" alt="Avatar PZ" width="72" height="72">
       <p class="tag">// étudiant · data · jeux vidéo</p>
       <h1>Salut, je suis <em>Pierre Zouania</em>.</h1>
       <p class="lead">Étudiant en BUT Science des données à l'IUT Nice Côte d'Azur. Je construis des projets web et data, avec pour objectif de devenir développeur de jeux vidéo.</p>
       <div class="cta">
         <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn" href="cv/CV_Pierre_Zouania.pdf" download>Télécharger mon CV</a>
         <a class="btn" href="#contact">Me contacter</a>
       </div>
     </section>
@@ -36,8 +40,8 @@
     <section id="apropos">
       <h2><span>01</span> À propos</h2>
       <div class="grid two">
-        <p>J'ai 18 ans et j'habite dans le Var. Après un bac général avec les spécialités mathématiques et NSI, j'ai rejoint le BUT Science des données à Valbonne, où j'apprends à collecter, analyser et valoriser des données.</p>
-        <p>Côté passions : les jeux vidéo, qui nourrissent mon projet professionnel, et le basket. J'aime apprendre en construisant des choses concrètes, du premier prototype à la mise en ligne.</p>
+        <p>J'ai 18 ans et j'habite dans le Var. Après un bac général section européenne Sciences de l'ingénieur (spécialités mathématiques et NSI), j'ai rejoint le BUT Science des données à Valbonne, où j'apprends à collecter, analyser et valoriser des données.</p>
+        <p>Je suis passionné de jeux vidéo, qui nourrissent mon projet professionnel, et je joue au basket dans une équipe depuis 2022. J'aime apprendre en construisant des choses concrètes, du premier prototype à la mise en ligne.</p>
       </div>
     </section>
 
@@ -45,16 +49,24 @@
       <h2><span>02</span> Compétences</h2>
       <div class="grid three">
         <article class="card">
-          <h3>Data</h3>
-          <ul class="chips"><li>Excel</li><li>Python</li><li>Statistiques</li><li>Visualisation</li></ul>
+          <h3>Programmation</h3>
+          <ul class="chips"><li>Python</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Tkinter</li><li>Programmation orientée objet</li></ul>
         </article>
         <article class="card">
-          <h3>Développement</h3>
-          <ul class="chips"><li>HTML / CSS</li><li>JavaScript</li><li>Git &amp; GitHub</li><li>NSI</li></ul>
+          <h3>Outils et services</h3>
+          <ul class="chips"><li>Git &amp; GitHub</li><li>Google Firebase</li><li>Supabase</li><li>Cloudflare Workers</li></ul>
         </article>
         <article class="card">
-          <h3>Outils</h3>
-          <ul class="chips"><li>Microsoft 365</li><li>Teams</li><li>Outlook</li><li>Claude</li></ul>
+          <h3>Données et bureautique</h3>
+          <ul class="chips"><li>Excel</li><li>Statistiques</li><li>Microsoft 365</li><li>Outlook</li><li>Teams</li></ul>
+        </article>
+        <article class="card">
+          <h3>Langues</h3>
+          <ul class="chips"><li>Français · langue maternelle</li><li>Anglais · C1</li><li>Allemand · A1+</li></ul>
+        </article>
+        <article class="card">
+          <h3>Savoir-être</h3>
+          <ul class="chips"><li>Sens des responsabilités</li><li>Rigueur</li><li>Sens de l'initiative</li><li>Autonomie</li></ul>
         </article>
       </div>
     </section>
@@ -90,11 +102,58 @@
       </div>
     </section>
 
+    <section id="parcours">
+      <h2><span>04</span> Parcours</h2>
+      <div class="grid two">
+        <div>
+          <h3 class="sub">Formation</h3>
+          <ul class="timeline">
+            <li>
+              <span class="when">2026 → actuel</span>
+              <strong>BUT Science des données</strong>
+              <span>IUT Nice Côte d'Azur, antenne de Valbonne</span>
+            </li>
+            <li>
+              <span class="when">2023 → 2026</span>
+              <strong>Baccalauréat, section européenne Sciences de l'ingénieur, mention Assez Bien</strong>
+              <span>Spécialités Maths et NSI · Lycée polyvalent Thomas Edison, Lorgues</span>
+            </li>
+            <li>
+              <span class="when">2019 → 2023</span>
+              <strong>Brevet des collèges</strong>
+              <span>Institution Sainte Jeanne d'Arc, Brignoles</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="sub">Expériences</h3>
+          <ul class="timeline">
+            <li>
+              <span class="when">Juillet 2026 · Juillet – août 2025</span>
+              <strong>Ouvrier de mise en bouteille</strong>
+              <span>Maîtres Vignerons de Vidauban · emploi d'été</span>
+            </li>
+            <li>
+              <span class="when">Juin 2024</span>
+              <strong>Stage de découverte du métier de professeur des écoles</strong>
+              <span>École Lucie Aubrac · tâches réalisées en suivant les consignes, adaptation rapide à de nouveaux concepts</span>
+            </li>
+            <li>
+              <span class="when">Avril 2023</span>
+              <strong>Stage en développement d'applications mobiles</strong>
+              <span>ESAQUE · stage en ingénierie chez un prestataire de service, accompagnement d'un salarié et tâches simples sous sa supervision</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
-      <h2><span>04</span> Contact</h2>
+      <h2><span>05</span> Contact</h2>
       <p>Un projet, une opportunité de stage ou d'alternance ? Écris-moi.</p>
       <div class="cta">
         <a class="btn primary" href="mailto:pzouania@gmail.com">pzouania@gmail.com</a>
+        <a class="btn" href="cv/CV_Pierre_Zouania.pdf" download>Télécharger mon CV</a>
         <a class="btn" href="https://github.com/pzouania" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/pierre-zouania-0696a0435/" target="_blank" rel="noopener">LinkedIn</a>
       </div>

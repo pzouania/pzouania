@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <rect width="96" height="96" rx="22" fill="#171922"/>
+  <rect x="1.5" y="1.5" width="93" height="93" rx="20.5" fill="none" stroke="#272a38" stroke-width="3"/>
+  <text x="48" y="60" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="36" font-weight="500" fill="#e8e9ee">PZ<tspan fill="#7cf0b5">_</tspan></text>
+</svg>
