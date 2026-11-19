@@ -1,24 +1,19 @@
-# Portfolio — Pierre Zouania
+# Pierre Zouania
 
-Site statique (HTML / CSS / JS), sans dépendance ni étape de build.
+Étudiant en BUT Science des données à l'IUT Nice Côte d'Azur (Valbonne), futur développeur de jeux vidéo.
 
-## Mettre en ligne avec GitHub Pages
+Portfolio : [pzouania.github.io](https://pzouania.github.io)
 
-1. Crée un dépôt sur GitHub. Pour une adresse du type `https://pzouania.github.io`, nomme-le exactement `pzouania.github.io`.
-2. Envoie-y ces fichiers :
-   ```bash
-   git init
-   git add .
-   git commit -m "Premier commit du portfolio"
-   git branch -M main
-   git remote add origin https://github.com/pzouania/pzouania.github.io.git
-   git push -u origin main
-   ```
-3. Sur GitHub : **Settings → Pages → Build and deployment → Source : Deploy from a branch**, branche `main`, dossier `/ (root)`.
-4. Après une minute environ, le site est en ligne.
+## Projets
 
-## À personnaliser
+- **Calendraft V1** (depuis le 22/09/2026) : application web gratuite pour créer des calendriers annuels personnalisés. En ligne sur [calendraft.fr](https://calendraft.fr). TypeScript, TSX, CSS, Cloudflare Workers, Supabase.
+- **Calendraft V0** (30/01/2026 → 11/09/2026) : première version de l'application. HTML, CSS, JavaScript, Google Firebase. [Voir la V0](https://pzouania.github.io/Calendraft-Old/)
+- **Jeux de plateau en Python** (20/02/2025 → 30/05/2025) : dames, jeu de l'oie et échecs avec interface graphique Tkinter.
 
-- `index.html` : textes et projets.
-- `style.css` : couleurs dans le bloc `:root` en haut du fichier.
-- Pour ajouter un projet : duplique un bloc `<article class="card project">`.
+## Technologies
+
+Python · HTML · CSS · JavaScript · TypeScript · TSX · Tkinter · Git et GitHub · Google Firebase · Supabase · Cloudflare Workers · Excel
+
+## Contact
+
+pzouania@gmail.com · [LinkedIn](https://www.linkedin.com/in/pierre-zouania-0696a0435/)
