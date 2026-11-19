@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pierre Zouania — Portfolio</title>
+  <meta name="description" content="Portfolio de Pierre Zouania, étudiant en BUT Science des données, futur développeur de jeux vidéo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="#top" class="logo">pz<span>_</span></a>
+    <nav>
+      <a href="#apropos">À propos</a>
+      <a href="#competences">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme-toggle" aria-label="Changer de thème">◐</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="tag">// étudiant · data · jeux vidéo</p>
+      <h1>Salut, je suis <em>Pierre Zouania</em>.</h1>
+      <p class="lead">Étudiant en BUT Science des données à l'IUT Nice Côte d'Azur. Je construis des projets web et data, avec pour objectif de devenir développeur de jeux vidéo.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn" href="#contact">Me contacter</a>
+      </div>
+    </section>
+
+    <section id="apropos">
+      <h2><span>01</span> À propos</h2>
+      <div class="grid two">
+        <p>J'ai 18 ans et j'habite dans le Var. Après un bac général avec les spécialités mathématiques et NSI, j'ai rejoint le BUT Science des données à Valbonne, où j'apprends à collecter, analyser et valoriser des données.</p>
+        <p>Côté passions : les jeux vidéo, qui nourrissent mon projet professionnel, et le basket. J'aime apprendre en construisant des choses concrètes, du premier prototype à la mise en ligne.</p>
+      </div>
+    </section>
+
+    <section id="competences">
+      <h2><span>02</span> Compétences</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>Data</h3>
+          <ul class="chips"><li>Excel</li><li>Python</li><li>Statistiques</li><li>Visualisation</li></ul>
+        </article>
+        <article class="card">
+          <h3>Développement</h3>
+          <ul class="chips"><li>HTML / CSS</li><li>JavaScript</li><li>Git &amp; GitHub</li><li>NSI</li></ul>
+        </article>
+        <article class="card">
+          <h3>Outils</h3>
+          <ul class="chips"><li>Microsoft 365</li><li>Teams</li><li>Outlook</li><li>Claude</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projets">
+      <h2><span>03</span> Projets informatiques</h2>
+      <div class="grid two">
+        <article class="card project wide">
+          <time class="date" data-start="2025-02-20" data-end="2025-05-30">20/02/2025 → 30/05/2025</time>
+          <h3>Jeux de plateau en Python</h3>
+          <p>Trois jeux complets avec interface graphique, programmés en Python avec Tkinter.</p>
+          <ul class="games">
+            <li><strong>Jeu de dames</strong> : plateau 8×8, prise obligatoire, captures multiples, promotion en dame et détection de fin de partie. <a class="link" href="python/jeu_de_dames.py" target="_blank" rel="noopener">Code →</a></li>
+            <li><strong>Jeu de l'oie</strong> : plateau en serpentin de 63 cases, deux dés, cases spéciales (pont, auberge, puits, labyrinthe, prison, mort), de 2 à 4 joueurs et mode test. <a class="link" href="python/jeu_de_l_oie.py" target="_blank" rel="noopener">Code →</a></li>
+            <li><strong>Jeu d'échecs</strong> : règles complètes (roque, prise en passant, promotion, échec, mat et pat), fenêtre redimensionnable et plein écran. <a class="link" href="python/jeu_d_echecs.py" target="_blank" rel="noopener">Code →</a></li>
+          </ul>
+          <ul class="chips"><li>Python</li><li>Tkinter</li><li>Programmation orientée objet</li></ul>
+        </article>
+        <article class="card project">
+          <time class="date" data-start="2026-01-30" data-end="2026-09-11">30/01/2026 → 11/09/2026</time>
+          <h3>Calendraft V0</h3>
+          <p>Première version de l'application web gratuite pour créer des calendriers annuels personnalisés : garde alternée, rythmes de travail en 3×8, etc.</p>
+          <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Google Firebase</li></ul>
+          <a class="link" href="https://pzouania.github.io/Calendraft-Old/" target="_blank" rel="noopener">Voir la V0 →</a>
+        </article>
+        <article class="card project">
+          <time class="date" data-start="2026-09-22">22/09/2026 → aujourd'hui</time>
+          <h3>Calendraft V1</h3>
+          <p>Deuxième version de l'application, en ligne et toujours en développement.</p>
+          <ul class="chips"><li>Cloudflare Workers</li><li>Supabase</li><li>GitHub</li></ul>
+          <a class="link" href="https://calendraft.fr" target="_blank" rel="noopener">Voir le site →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2><span>04</span> Contact</h2>
+      <p>Un projet, une opportunité de stage ou d'alternance ? Écris-moi.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:pzouania@gmail.com">pzouania@gmail.com</a>
+        <a class="btn" href="https://github.com/pzouania" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/pierre-zouania-0696a0435/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Pierre Zouania — fait à la main, hébergé sur GitHub Pages.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

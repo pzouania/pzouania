@@ -1,16 +1,24 @@
-## Hi there 👋
+# Portfolio — Pierre Zouania
 
-<!--
-**pzouania/pzouania** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Site statique (HTML / CSS / JS), sans dépendance ni étape de build.
 
-Here are some ideas to get you started:
+## Mettre en ligne avec GitHub Pages
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+1. Crée un dépôt sur GitHub. Pour une adresse du type `https://pzouania.github.io`, nomme-le exactement `pzouania.github.io`.
+2. Envoie-y ces fichiers :
+   ```bash
+   git init
+   git add .
+   git commit -m "Premier commit du portfolio"
+   git branch -M main
+   git remote add origin https://github.com/pzouania/pzouania.github.io.git
+   git push -u origin main
+   ```
+3. Sur GitHub : **Settings → Pages → Build and deployment → Source : Deploy from a branch**, branche `main`, dossier `/ (root)`.
+4. Après une minute environ, le site est en ligne.
+
+## À personnaliser
+
+- `index.html` : textes et projets.
+- `style.css` : couleurs dans le bloc `:root` en haut du fichier.
+- Pour ajouter un projet : duplique un bloc `<article class="card project">`.
