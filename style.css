@@ -147,7 +147,15 @@ h2 span { font-family: var(--mono); font-size: .8rem; letter-spacing: .2em; colo
 .grid.three { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 1000px) { .grid.three { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px) { .grid.two, .grid.three { grid-template-columns: 1fr; } }
-#apropos .grid p { margin: 0; color: var(--muted); max-width: 60ch; }
+#apropos .textes p { margin: 0 0 1.1rem; color: var(--muted); max-width: 60ch; font-size: 1.05rem; }
+.apropos-grid { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; gap: clamp(1.6rem, 5vw, 3.4rem); align-items: center; }
+.photo {
+  margin: 0; padding: 2px; width: 100%;
+  background: linear-gradient(135deg, var(--mid), var(--line));
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+}
+.photo img { display: block; width: 100%; height: auto; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 29px), calc(100% - 29px) 100%, 0 100%); }
+@media (max-width: 760px) { .apropos-grid { grid-template-columns: 1fr; } .photo { max-width: 320px; } }
 
 /* Cartes à coin coupé */
 .card {
