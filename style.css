@@ -154,8 +154,8 @@ h2 span { font-family: var(--mono); font-size: .8rem; letter-spacing: .2em; colo
   background: linear-gradient(135deg, var(--mid), var(--line));
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
 }
-.photo img { display: block; width: 100%; height: auto; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 29px), calc(100% - 29px) 100%, 0 100%); }
-@media (max-width: 760px) { .apropos-grid { grid-template-columns: 1fr; } .photo { max-width: 320px; } }
+.photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 29px), calc(100% - 29px) 100%, 0 100%); }
+@media (max-width: 760px) { .apropos-grid { grid-template-columns: 1fr; justify-items: center; } .photo { max-width: 260px; } .photo img { aspect-ratio: 1 / 1; } #apropos .textes { width: 100%; } }
 
 /* Cartes à coin coupé */
 .card {
