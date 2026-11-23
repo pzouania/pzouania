@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code — Pierre Zouania</title>
+  <meta name="description" content="Le code source Python de mes jeux (dames, jeu de l'oie, échecs), à lire directement sur le site.">
+  <meta name="theme-color" content="#0b0b0d">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="jouer.css">
+  <link rel="stylesheet" href="code.css">
+</head>
+<body>
+  <div class="top compact">
+    <header class="nav">
+      <a href="index.html" class="logo" aria-label="Retour à l'accueil">
+        <img src="logo.png" alt="Logo PZ" height="46">
+        <span>Pierre Zouania</span>
+      </a>
+      <nav>
+        <a href="index.html#projets">/projets</a>
+        <a href="jouer.html">/jouer</a>
+        <a href="index.html#parcours">/parcours</a>
+        <button id="theme-toggle" type="button" aria-label="Changer de thème"></button>
+        <a href="index.html#contact" class="nav-cta">/contact</a>
+      </nav>
+    </header>
+  </div>
+
+  <main class="jouer codepage">
+    <p class="label">// Code source</p>
+    <h1>Code</h1>
+    <p class="lead">Le code Python de mes trois jeux, à lire directement ici : les versions Tkinter d'origine et les moteurs adaptés pour tourner dans le navigateur.</p>
+
+    <div class="tabs" id="fichiers" role="tablist" aria-label="Choix du fichier"></div>
+
+    <section class="ide" id="ide" aria-live="polite">
+      <div class="ide-bar">
+        <span class="ide-path" id="ide-path">—</span>
+        <span class="ide-meta" id="ide-meta"></span>
+        <div class="ide-actions">
+          <button type="button" id="b-moins" title="Texte plus petit" aria-label="Texte plus petit">A−</button>
+          <button type="button" id="b-plus" title="Texte plus grand" aria-label="Texte plus grand">A+</button>
+          <button type="button" id="b-wrap" title="Retour à la ligne" aria-pressed="false">Retour ligne</button>
+          <button type="button" id="b-copier">Copier</button>
+          <a id="b-dl" class="dl" download>Télécharger</a>
+          <a id="b-jouer" class="dl" href="jouer.html">Jouer →</a>
+        </div>
+      </div>
+      <div class="ide-body">
+        <nav class="ide-plan" aria-label="Plan du fichier">
+          <p class="plan-titre">// Plan</p>
+          <ul id="plan"></ul>
+        </nav>
+        <div class="ide-code" id="zone-code" tabindex="0">
+          <p class="vide">Chargement…</p>
+        </div>
+      </div>
+    </section>
+    <p class="note" id="desc"></p>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Pierre Zouania · tech monochrome · hébergé sur GitHub Pages</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="code.js"></script>
+</body>
+</html>

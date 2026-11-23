@@ -1,0 +1,74 @@
+/* Visionneuse de code */
+:root {
+  --c-base: #c2c3c7; --c-kw: #ffffff; --c-str: #8e9096; --c-com: #5f6167; --c-num: #e4e5e8; --c-fn: #ffffff; --c-bi: #a9abb0; --c-deco: #7d7e83;
+  --ide-bg: #0d0d0f; --ide-bar: #151517; --ide-hl: rgba(255,255,255,.07); --ide-num: #4d4f54;
+}
+:root[data-theme="light"] {
+  --c-base: #34353a; --c-kw: #000000; --c-str: #6c6d73; --c-com: #9b9ca1; --c-num: #1c1c1f; --c-fn: #000; --c-bi: #55565b; --c-deco: #77787c;
+  --ide-bg: #ffffff; --ide-bar: #efeff1; --ide-hl: rgba(0,0,0,.06); --ide-num: #a9aaaf;
+}
+.codepage .tabs { margin-bottom: 1.6rem; }
+.codepage .tab small { opacity: .6; letter-spacing: .08em; margin-left: .5rem; text-transform: none; }
+
+.ide {
+  padding: 0; margin: 0;
+  background: var(--ide-bg); border: 2px solid var(--line);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+}
+.ide-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem;
+  padding: .7rem 1rem; background: var(--ide-bar); border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: .78rem;
+}
+.ide-path { color: var(--text); letter-spacing: .04em; }
+.ide-path::before { content: "▸ "; color: var(--steel); }
+.ide-meta { color: var(--muted); }
+.ide-actions { margin-left: auto; display: flex; flex-wrap: wrap; gap: .5rem; }
+.ide-actions button, .ide-actions .dl {
+  font: inherit; letter-spacing: .1em; text-transform: uppercase; font-size: .7rem; color: var(--muted);
+  background: transparent; border: 1px solid var(--line-2); padding: .45rem .8rem; cursor: pointer; text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+.ide-actions button:hover, .ide-actions .dl:hover { color: var(--text); border-color: var(--steel); }
+.ide-actions button[aria-pressed="true"] { color: var(--text); border-color: var(--steel); }
+
+.ide-body { display: grid; grid-template-columns: 220px 1fr; height: min(72vh, 760px); min-height: 380px; }
+.ide-plan { border-right: 1px solid var(--line); overflow: auto; padding: 1rem .8rem; background: var(--ide-bg); }
+.plan-titre { font-family: var(--mono); font-size: .7rem; letter-spacing: .18em; color: var(--mid); margin: 0 0 .8rem; text-transform: uppercase; }
+.ide-plan ul { list-style: none; margin: 0; padding: 0; }
+.ide-plan li { margin: 0; }
+.ide-plan button {
+  display: block; width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
+  font-family: var(--mono); font-size: .74rem; color: var(--muted); padding: .28rem .4rem; border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ide-plan button:hover { color: var(--text); border-left-color: var(--steel); background: var(--ide-hl); }
+.ide-plan .classe { color: var(--text); margin-top: .5rem; }
+.ide-plan .meth { padding-left: 1.2rem; }
+
+.ide-code { overflow: auto; font-family: var(--mono); font-size: var(--taille, 13px); line-height: 1.65; outline: none; tab-size: 4; }
+.ide-code .vide { padding: 2rem; color: var(--muted); }
+.code-lignes { display: table; min-width: 100%; padding: .8rem 0; }
+.ln { display: table-row; }
+.ln > .n {
+  display: table-cell; position: sticky; left: 0; text-align: right; user-select: none; cursor: pointer;
+  padding: 0 .9rem 0 1rem; min-width: 3.6ch; color: var(--ide-num); background: var(--ide-bg); border-right: 1px solid var(--line);
+}
+.ln > .t { display: table-cell; padding: 0 1.4rem 0 1rem; white-space: pre; color: var(--c-base); }
+.ln:hover > .t { background: var(--ide-hl); }
+.ln.cible > .t, .ln.cible > .n { background: var(--ide-hl); color: var(--text); }
+.ln.cible > .n { box-shadow: inset 2px 0 0 var(--steel); }
+.wrap .ln > .t { white-space: pre-wrap; word-break: break-word; }
+.k { color: var(--c-kw); font-weight: 700; }
+.s { color: var(--c-str); }
+.c { color: var(--c-com); font-style: italic; }
+.d { color: var(--c-num); }
+.f { color: var(--c-fn); font-weight: 700; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.b { color: var(--c-bi); }
+.a { color: var(--c-deco); }
+@media (max-width: 860px) {
+  .ide-body { grid-template-columns: 1fr; height: auto; }
+  .ide-plan { max-height: 150px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .ide-code { max-height: 70vh; }
+  .ide-actions { margin-left: 0; }
+}

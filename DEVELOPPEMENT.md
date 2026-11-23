@@ -11,10 +11,12 @@ HTML, CSS et JavaScript, sans framework ni étape de build. Polices : Space Grot
 ```
 index.html        page d'accueil du portfolio
 jouer.html        page des jeux jouables en ligne
+code.html         visionneuse du code Python (coloration, plan, copie)
 style.css         styles et palette (variables en haut du fichier)
 jouer.css         styles des plateaux
 script.js         thème, animations, calcul des durées
 jouer.js          interface des jeux et chargement de Pyodide
+code.css / code.js  style et script de la visionneuse de code
 logo.png          logo PZ (aussi utilisé comme icône d'onglet)
 photo.jpg         portrait affiché dans la section À propos (fond détouré, 800 x 1000)
 cv/               CV au format PDF
