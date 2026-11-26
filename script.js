@@ -53,15 +53,35 @@ function duree(a, b) {
   return parts.join(" et ");
 }
 
+const JOUR = 24 * 3600 * 1000;
+function fin_de(el) {
+  const fini = !!el.dataset.end;
+  const b = fini ? new Date(el.dataset.end + "T00:00:00") : new Date();
+  b.setHours(0, 0, 0, 0);
+  return { b, fini };
+}
+
 function majDates() {
   document.querySelectorAll(".date[data-start]").forEach((el) => {
     const a = new Date(el.dataset.start + "T00:00:00");
-    const fini = !!el.dataset.end;
-    const b = fini ? new Date(el.dataset.end + "T00:00:00") : new Date();
-    b.setHours(0, 0, 0, 0);
+    const { b, fini } = fin_de(el);
     // Sans date de fin : on affiche la date d'aujourd'hui
     const fin = fini ? fmt(b) : `${fmt(b)} (aujourd'hui)`;
-    el.textContent = `${fmt(a)} → ${fin} · ${duree(a, b)}`;
+    const dansPeriodes = !!el.closest(".periodes");   // plusieurs périodes : une seule durée, additionnée
+    el.textContent = `${fmt(a)} → ${fin}` + (dansPeriodes ? "" : ` · ${duree(a, b)}`);
+  });
+  // Projets en plusieurs périodes : durée totale = somme des durées de chaque période
+  document.querySelectorAll(".periodes").forEach((bloc) => {
+    let total = 0, debut = null;
+    bloc.querySelectorAll(".date[data-start]").forEach((el) => {
+      const a = new Date(el.dataset.start + "T00:00:00");
+      total += Math.round((fin_de(el).b - a) / JOUR);
+      if (!debut || a < debut) debut = a;
+    });
+    let t = bloc.querySelector(".total");
+    if (!t) { t = document.createElement("span"); t.className = "date total"; bloc.appendChild(t); }
+    const fin = new Date(debut.getFullYear(), debut.getMonth(), debut.getDate() + total);
+    t.textContent = `Durée totale : ${duree(debut, fin)}`;
   });
 }
 majDates();
