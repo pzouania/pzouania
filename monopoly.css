@@ -1,47 +1,9 @@
 /* Monopoly en ligne */
 .mono-zone { display: grid; grid-template-columns: minmax(0, 760px) minmax(280px, 1fr); gap: 2rem; align-items: start; }
 .mono-defile { overflow-x: auto; }
-.mono-plateau {
-  --c: 1; container-type: inline-size; min-width: 600px;
-  display: grid; grid-template-columns: 1.55fr repeat(9, 1fr) 1.55fr; grid-template-rows: 1.55fr repeat(9, 1fr) 1.55fr;
-  aspect-ratio: 1; background: var(--bg-2); border: 2px solid var(--steel); position: relative; user-select: none;
-}
-.mono-case {
-  position: relative; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--text);
-  display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center;
-  padding: .3cqw; overflow: hidden; cursor: pointer; min-width: 0; min-height: 0; outline: none;
-}
-.mono-case:hover, .mono-case.sel { background: var(--bg); box-shadow: inset 0 0 0 2px var(--steel); z-index: 2; }
-.mono-case.courant { box-shadow: inset 0 0 0 3px var(--sel); z-index: 1; }
-.mono-case .bande { align-self: stretch; height: 2.6cqw; margin: -.3cqw -.3cqw .2cqw; border-bottom: 1px solid #000; display: flex; align-items: center; justify-content: center; gap: .2cqw; }
-.mono-case .bande i { display: block; width: 1.3cqw; height: 1.3cqw; background: #1fa35a; border: 1px solid #000; }
-.mono-case .bande i.hotel { width: 2.6cqw; background: #d7261e; }
-.mono-case .nom { font-size: 1.05cqw; line-height: 1.15; font-weight: 500; letter-spacing: .01em; text-transform: uppercase; overflow-wrap: anywhere; }
-.mono-case .bas { font-family: var(--mono); font-size: 1cqw; color: var(--muted); }
-.mono-case .bas.grand { font-size: 2.6cqw; color: var(--text); }
-.mono-case.coin .nom { font-size: 1.5cqw; font-weight: 700; }
-.mono-case.t-chance .bas { color: #e8730c; }
-.mono-case.t-community .bas { color: #4da3e0; }
-.mono-case .proprio { position: absolute; left: 0; right: 0; bottom: 0; height: .7cqw; }
-.mono-case.hyp { opacity: .55; background-image: repeating-linear-gradient(135deg, transparent 0 .8cqw, rgba(192, 57, 43, .35) .8cqw 1cqw); }
-.mono-case .pions { position: absolute; left: .2cqw; right: .2cqw; bottom: 1cqw; display: flex; flex-wrap: wrap; gap: .2cqw; justify-content: center; }
-.mono-case .pion {
-  width: 2.2cqw; height: 2.2cqw; border-radius: 50%; border: .2cqw solid #fff; color: #fff; font-size: 1.2cqw; font-weight: 700;
-  display: grid; place-items: center; box-shadow: 0 0 0 1px #000; text-shadow: 0 0 2px #000;
-}
-.mono-case .pion.prison { outline: .25cqw dashed #f7941d; outline-offset: .1cqw; }
-.mono-centre { grid-row: 2 / 11; grid-column: 2 / 11; display: grid; align-content: center; justify-items: center; gap: 2cqw; padding: 2cqw; pointer-events: none; }
-.logo-m {
-  font-weight: 800; font-size: 7cqw; letter-spacing: .04em; transform: rotate(-8deg); color: #fff; background: #d7261e;
-  padding: .6cqw 3cqw; border: .4cqw solid #fff; outline: .3cqw solid #000;
-}
-.mono-centre .des { font-size: 8cqw; line-height: 1; letter-spacing: .1em; }
-.paquets { display: grid; grid-template-columns: 1fr 1fr; gap: 3cqw; width: 80%; }
-.paquet { padding: 1.4cqw; font-size: 1.3cqw; min-height: 11cqw; border: .3cqw solid; color: #000; }
-.paquet b { display: block; text-transform: uppercase; font-size: 1.1cqw; margin-bottom: .6cqw; }
-.paquet.caisse { background: #bfe3f5; border-color: #1e88c8; }
-.paquet.chance { background: #f9b66a; border-color: #c25e00; }
-.mono-centre .petite { font-size: 1.1cqw; }
+.mono-plateau { display: block; width: 100%; min-width: 600px; height: auto; aspect-ratio: 1; background: #d2e8d4; border: 2px solid var(--steel); user-select: none; -webkit-user-select: none; }
+.mono-plateau text { pointer-events: none; }
+.mono-plateau rect:focus-visible { stroke: var(--sel, #f7941d); stroke-width: 3; }
 
 .mono-panneau { display: grid; gap: .9rem; align-content: start; min-width: 0; }
 .mono-boutons { display: flex; flex-wrap: wrap; gap: .5rem; }
@@ -62,8 +24,9 @@
 .jeton.clair { color: #fff; }
 .jeton.hyp { background: #fff !important; color: #c0392b; box-shadow: inset 0 0 0 2px #c0392b; }
 .jetons .aucun { font-size: .72rem; color: var(--muted); font-style: italic; }
-.mono-carte { border: 2px solid var(--line-2); background: var(--ide-bg, var(--bg-2)); font-size: .8rem; }
-.mono-carte[hidden] { display: none; }
+.mono-carte { display: none; border: 2px solid var(--line-2); background: var(--ide-bg, var(--bg-2)); font-size: .8rem; }
+.mono-carte[hidden] { display: none !important; }
+@media (max-width: 760px) { .mono-carte:not([hidden]) { display: block; } .mono-plateau .info { display: none; } }
 .carte-titre { padding: .6rem; text-align: center; font-weight: 800; letter-spacing: .04em; border-bottom: 1px solid var(--line-2); }
 .carte-corps { padding: .6rem .8rem; }
 .carte-corps .ligne { display: flex; justify-content: space-between; padding: .12rem .3rem; }
