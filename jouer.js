@@ -352,6 +352,7 @@ const JEUX = {
   dames: { module: "dames", init: initDames },
   oie: { module: "oie", init: initOie },
   echecs: { module: "echecs", init: initEchecs },
+  monopoly: { module: "monopoly", init: initMonopoly },
 };
 const onglets = [...document.querySelectorAll(".tab")];
 let enCours = 0;
@@ -362,7 +363,7 @@ async function ouvrirJeu(nom) {
   const jeton = ++enCours;
   onglets.forEach((t) => t.setAttribute("aria-selected", String(t.dataset.jeu === nom)));
   for (const n of Object.keys(JEUX)) document.getElementById(`jeu-${n}`).hidden = n !== nom;
-  history.replaceState(null, "", `#${nom}`);
+  history.replaceState(null, "", location.pathname + `#${nom}`);
   const racine = document.getElementById(`jeu-${nom}`);
   if (jeuxInitialises[nom]) { dire(""); return; }
   try {

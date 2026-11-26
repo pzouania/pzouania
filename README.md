@@ -2,7 +2,7 @@
 
 Étudiant en BUT Science des données, futur développeur de jeux vidéo.
 
-[Portfolio](https://pzouania.github.io) · [LinkedIn](https://www.linkedin.com/in/pierre-zouania-0696a0435/) · [pzouania@gmail.com](mailto:pzouania@gmail.com)
+[Portfolio](https://pzouania.github.io/pzouania/) · [LinkedIn](https://www.linkedin.com/in/pierre-zouania-0696a0435/) · [pzouania@gmail.com](mailto:pzouania@gmail.com)
 
 ## À propos
 
@@ -14,7 +14,8 @@
 | --- | --- | --- | --- |
 | **Calendraft V1**, application web gratuite de calendriers annuels personnalisés | depuis le 22/09/2026 | TypeScript, TSX, CSS, Cloudflare Workers, Supabase | [calendraft.fr](https://calendraft.fr) |
 | **Calendraft V0**, première version de l'application | 30/01/2026 – 11/09/2026 | HTML, CSS, JavaScript, Google Firebase | [Voir la V0](https://pzouania.github.io/Calendraft-Old/) |
-| **Jeux de plateau**, dames, jeu de l'oie et échecs avec interface graphique | 20/02/2025 – 30/05/2025 | Python, Tkinter, Pyodide | [Jouer en ligne](https://pzouania.github.io/jouer.html) |
+| **Jeux de plateau**, dames, jeu de l'oie et échecs avec interface graphique | 20/02/2025 – 30/05/2025 | Python, Tkinter, Pyodide | [Jouer en ligne](https://pzouania.github.io/pzouania/jouer/) |
+| **Monopoly**, version française complète pour 2 à 8 joueurs | 04/09/2025 – 23/10/2025, repris le 26/11/2026 | Python, Tkinter, Pyodide | [Jouer en ligne](https://pzouania.github.io/pzouania/jouer/#monopoly) |
 
 ## Compétences
 

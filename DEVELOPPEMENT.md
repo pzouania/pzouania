@@ -10,12 +10,14 @@ HTML, CSS et JavaScript, sans framework ni étape de build. Polices : Space Grot
 
 ```
 index.html        page d'accueil du portfolio
-jouer.html        page des jeux jouables en ligne
-code.html         visionneuse du code Python (coloration, plan, copie)
+jouer/index.html  page des jeux jouables en ligne (adresse /jouer/)
+code/index.html   visionneuse du code Python (coloration, plan, copie)
+jouer.html, code.html  anciennes adresses, simples redirections vers /jouer/ et /code/
 style.css         styles et palette (variables en haut du fichier)
 jouer.css         styles des plateaux
 script.js         thème, animations, calcul des durées
 jouer.js          interface des jeux et chargement de Pyodide
+monopoly.js / monopoly.css  interface du Monopoly en ligne
 code.css / code.js  style et script de la visionneuse de code
 logo.png          logo PZ (aussi utilisé comme icône d'onglet)
 photo.jpg         portrait affiché dans la section À propos (fond détouré, 800 x 1000)
@@ -35,7 +37,9 @@ python/web/       moteurs Python utilisés par la page Jouer
 
 Chaque jeu a un moteur Python dans `python/web/` (même logique que les fichiers Tkinter, sans l'interface) exposant une fonction `api(methode, args)` qui renvoie l'état en JSON. La page `jouer.html` charge Pyodide depuis un CDN, importe le moteur choisi et dessine le plateau en HTML.
 
-Pour tester en local, servir le site (`python -m http.server`, puis `http://localhost:8000/jouer.html`) : en ouvrant le fichier directement, le navigateur bloque la lecture des fichiers Python.
+Le Monopoly (`python/web/monopoly.py`) reprend les règles de Monopoly v0.9. Comme le navigateur ne peut pas bloquer pour poser une question, le moteur renvoie une « attente » (achat, enchère, vente forcée) ; à la réponse, l'action est rejouée depuis une sauvegarde avec les dés déjà tirés.
+
+Pour tester en local, servir le site (`python -m http.server`, puis `http://localhost:8000/jouer/`) : en ouvrant le fichier directement, le navigateur bloque la lecture des fichiers Python.
 
 ## Mise en ligne avec GitHub Pages
 

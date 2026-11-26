@@ -5,9 +5,11 @@
     { id: "dames",  titre: "Jeu de dames",  sous: "Tkinter", chemin: "python/jeu_de_dames.py",  jeu: "dames",  desc: "Version d'origine, avec l'interface Tkinter (20/02/2025 – 30/05/2025)." },
     { id: "oie",    titre: "Jeu de l'oie",  sous: "Tkinter", chemin: "python/jeu_de_l_oie.py",  jeu: "oie",    desc: "Version d'origine, avec l'interface Tkinter (20/02/2025 – 30/05/2025)." },
     { id: "echecs", titre: "Jeu d'échecs",  sous: "Tkinter", chemin: "python/jeu_d_echecs.py",  jeu: "echecs", desc: "Version d'origine, avec l'interface Tkinter (20/02/2025 – 30/05/2025)." },
+    { id: "monopoly", titre: "Monopoly", sous: "Tkinter", chemin: "python/jeu_monopoly.py", jeu: "monopoly", desc: "Version 0.9 avec l'interface Tkinter : projet du 04/09/2025 au 23/10/2025, repris le 26/11/2026. Les règles (classes Player et Game) sont séparées de l'interface." },
     { id: "dames-web",  titre: "Dames",  sous: "moteur web",  chemin: "python/web/dames.py",  jeu: "dames",  desc: "Moteur de règles sans interface, exécuté dans le navigateur par Pyodide." },
     { id: "oie-web",    titre: "Oie",    sous: "moteur web",  chemin: "python/web/oie.py",    jeu: "oie",    desc: "Moteur de règles sans interface, exécuté dans le navigateur par Pyodide." },
-    { id: "echecs-web", titre: "Échecs", sous: "moteur web",  chemin: "python/web/echecs.py", jeu: "echecs", desc: "Moteur de règles sans interface, exécuté dans le navigateur par Pyodide." }
+    { id: "echecs-web", titre: "Échecs", sous: "moteur web",  chemin: "python/web/echecs.py", jeu: "echecs", desc: "Moteur de règles sans interface, exécuté dans le navigateur par Pyodide." },
+    { id: "monopoly-web", titre: "Monopoly", sous: "moteur web", chemin: "python/web/monopoly.py", jeu: "monopoly", desc: "Mêmes règles que la version Tkinter, plus une couche qui gère les décisions du joueur (achat, enchères, vente forcée) dans le navigateur, exécutée par Pyodide." }
   ];
   var MOTS = "False None True and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield match case".split(" ");
   var INTEGRES = "print len range int str float list dict set tuple bool self cls super isinstance enumerate zip map filter sorted sum min max abs round open input type any all reversed iter next repr format divmod".split(" ");
@@ -71,9 +73,9 @@
     Array.prototype.forEach.call(tabs.children, function (b) { b.setAttribute("aria-selected", b.dataset.id === f.id ? "true" : "false"); });
     $("ide-path").textContent = f.chemin;
     $("b-dl").href = f.chemin; $("b-dl").setAttribute("download", f.chemin.split("/").pop());
-    $("b-jouer").href = "jouer.html#" + f.jeu;
+    $("b-jouer").href = "jouer/#" + f.jeu;
     $("desc").textContent = f.desc;
-    if (majAdresse) history.replaceState(null, "", "#" + f.id);
+    if (majAdresse) history.replaceState(null, "", location.pathname + "#" + f.id);
     if (cache[f.chemin]) return afficher(cache[f.chemin]);
     zone.innerHTML = '<p class="vide">Chargement…</p>'; plan.innerHTML = "";
     fetch(f.chemin).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
@@ -111,7 +113,7 @@
     var el = $("L" + n); if (!el) return;
     el.classList.add("cible");
     zone.scrollTop = Math.max(0, el.offsetTop - 60);
-    if (courant) history.replaceState(null, "", "#" + courant.id + "-L" + n);
+    if (courant) history.replaceState(null, "", location.pathname + "#" + courant.id + "-L" + n);
   }
 
   zone.addEventListener("click", function (e) { var n = e.target.closest && e.target.closest(".n"); if (n) aller(+n.dataset.l); });
