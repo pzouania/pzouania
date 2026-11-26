@@ -899,8 +899,14 @@ class WebUI:
         self.k = 0
         self.last_card = {"chance": "", "community": ""}
         self.winner = None
+        self.moves = []          # déplacements de pions (joueur, case d'arrivée, sens) pour l'animation
+        self.delivered = 0       # combien ont déjà été envoyés à l'interface
 
     # -- appelées par Game --
+    def pawn_moved(self, p, direction=1):
+        game = WEB["game"]
+        self.moves.append([game.players.index(p), p.position, direction])
+
     def log(self, text):
         self.logs.append(text)
 
@@ -977,6 +983,7 @@ def _run(action, args, answers, snap, dice=None):
     """Exécute une action avec les réponses connues. Renvoie True si terminée, False si en attente."""
     ui = WEB["ui"]
     ui.answers, ui.k = answers, 0
+    ui.moves = []                      # rejoué depuis l'instantané : la liste est reconstruite
     g = WEB["game"]
     try:
         if action == "roll":
@@ -1000,6 +1007,7 @@ def _run(action, args, answers, snap, dice=None):
 def _start(action, args=None, dice=None):
     WEB["error"] = None
     snap = _snapshot()
+    WEB["ui"].delivered = 0
     _run(action, args, [], snap, dice)
 
 
@@ -1036,6 +1044,8 @@ def _state():
                         "properties": sorted(p.properties), "in_jail": p.in_jail, "jail_cards": len(p.jail_cards),
                         "active": p.active, "assets": g.assets_value(p), "k": k})
     pend = WEB["pending"]
+    moves = ui.moves[ui.delivered:]
+    ui.delivered = len(ui.moves)
     ranking = [{"rank": r, "name": p.name, "color": p.color, "money": m, "assets": a, "total": t, "active": p.active}
                for r, p, m, a, t in g.ranking()]
     return {
@@ -1046,6 +1056,7 @@ def _state():
         "last_card": ui.last_card, "log": ui.logs[-200:], "ranking": ranking,
         "pending": pend["info"] if pend else None,
         "error": WEB.get("error"),
+        "moves": moves,
         "manage": _manage_info(),
     }
 
