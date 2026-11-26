@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jouer — Pierre Zouania</title>
+  <meta name="description" content="Mes jeux Python (dames, jeu de l'oie, échecs) jouables directement dans le navigateur.">
+  <meta name="theme-color" content="#0b0b0d">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="jouer.css">
+  <link rel="stylesheet" href="monopoly.css">
+</head>
+<body>
+  <div class="top compact">
+    <header class="nav">
+      <a href="index.html" class="logo" aria-label="Retour à l'accueil">
+        <img src="logo.png" alt="Logo PZ" height="46">
+        <span>Pierre Zouania</span>
+      </a>
+      <nav>
+        <a href="index.html#projets">/projets</a>
+        <a href="index.html#parcours">/parcours</a>
+        <button id="theme-toggle" type="button" aria-label="Changer de thème"></button>
+        <a href="index.html#contact" class="nav-cta">/contact</a>
+      </nav>
+    </header>
+  </div>
 
+  <main class="jouer">
+    <p class="label">// Démo en ligne</p>
+    <h1>Jouer</h1>
+    <p class="lead">Mes quatre jeux Python tournent ici, dans ton navigateur, grâce à Pyodide. Le premier lancement télécharge Python : compte quelques secondes.</p>
+
+    <div class="tabs" role="tablist" aria-label="Choix du jeu">
+      <button class="tab" role="tab" data-jeu="dames" type="button">Jeu de dames</button>
+      <button class="tab" role="tab" data-jeu="oie" type="button">Jeu de l'oie</button>
+      <button class="tab" role="tab" data-jeu="echecs" type="button">Jeu d'échecs</button>
+      <button class="tab" role="tab" data-jeu="monopoly" type="button">Monopoly</button>
+    </div>
+
+    <p id="statut" class="statut" role="status">Choisis un jeu pour commencer.</p>
+
+    <div id="jeu-dames" class="jeu" hidden></div>
+    <div id="jeu-oie" class="jeu" hidden></div>
+    <div id="jeu-echecs" class="jeu" hidden></div>
+    <div id="jeu-monopoly" class="jeu" hidden></div>
+
+    <p class="note"><a class="link" href="code/">Lire le code Python des jeux →</a> (versions Tkinter d'origine et moteurs utilisés ici).</p>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Pierre Zouania · tech monochrome · hébergé sur GitHub Pages</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="monopoly.js"></script>
+  <script src="jouer.js"></script>
+</body>
+</html>
